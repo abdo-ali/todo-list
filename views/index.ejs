@@ -1,0 +1,115 @@
+<%- include('partials/header.ejs'); -%>
+<form
+  class="tab-view tab-view-height-auto"
+  action="/user"
+  method="post"
+  style="background-color: <%= color %>"
+>
+  <% users.forEach(function(user) { %>
+  <input type="submit" name="user" value="<%= user.id %>" id="<%= user.id %>" />
+  <label for="<%= user.id %>" style="background-color: <%= user.color %>">
+    <%= user.name %>
+  </label>
+  <% }); %>
+
+  <input type="submit" name="add" value="new" id="tab" />
+  <label for="tab">Add User</label>
+
+  <input type="submit" name="delete" value="delete" id="delete" />
+  <label class="delete" for="delete">Delete This User</label>
+</form>
+
+<div style="background-color: <%= color %>" class="box" id="heading">
+  <h1>What's your goal in ?</h1>
+  <form class="goal" action="/goal" method="post">
+    <input type="submit" name="goal" value="T" id="T" />
+    <label for="T" style="background-color: '<%= color %>'"> Today </label>
+
+    <input type="submit" name="goal" value="W" id="W" />
+    <label for="W" style="background-color: '<%= color %>'"> This Week </label>
+
+    <input type="submit" name="goal" value="M" id="M" />
+    <label for="M" style="background-color: '<%= color %>'"> This Month </label>
+  </form>
+</div>
+
+<div class="box">
+  <% for(let item of listItems){%>
+  <div class="item">
+    <form action="/delete" method="post">
+      <input
+        type="checkbox"
+        onchange="this.form.submit()"
+        name="deleteItemId"
+        value="<%= item.id %>"
+      />
+    </form>
+
+    <p id="title<%=item.id%>"><%= item.title %></p>
+    <form class="edit" action="/edit" method="post">
+      <input type="hidden" name="updatedItemId" value="<%= item.id %>" />
+      <input
+        id="input<%=item.id%>"
+        type="text"
+        name="updatedItemTitle"
+        value="<%= item.title %>"
+        autocomplete="off"
+        autofocus="true"
+        hidden="true"
+      />
+      <p class="date" id="date<%=item.id%>"><%= item.date %></p>
+
+      <button id="done<%=item.id%>" class="edit" type="submit" hidden>
+        <img
+          class="icon"
+          src="/assets/icons/check-solid.svg"
+          alt="tick image"
+          stroke="<%= color %>"
+        />
+      </button>
+    </form>
+
+    <button
+      id="edit<%=item.id%>"
+      class="edit"
+      onclick="handler('<%=item.id%>')"
+    >
+      <img
+        class="icon"
+        src="/assets/icons/pencil-solid.svg"
+        alt="pencil image"
+        style="fill: <%= color %>"
+      />
+    </button>
+  </div>
+  <% } %>
+
+  <form class="item" action="/add" method="post">
+    <input
+      type="text"
+      name="newItem"
+      placeholder="New Item"
+      autocomplete="off"
+      autofocus="true"
+    />
+    <button
+      class="add"
+      type="submit"
+      name="list"
+      value="<%= locals.listTitle %>"
+      style="background-color: <%= color %>"
+    >
+      +
+    </button>
+  </form>
+</div>
+
+<script>
+  function handler(id) {
+    document.getElementById("title" + id).setAttribute("hidden", true);
+    document.getElementById("edit" + id).setAttribute("hidden", true);
+    document.getElementById("done" + id).removeAttribute("hidden");
+    document.getElementById("input" + id).removeAttribute("hidden");
+  }
+</script>
+<%- include('partials/footer.ejs'); -%>

@@ -1,0 +1,128 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+* {
+  box-sizing: border-box;
+}
+.user_section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Roboto";
+  color: #ffffff;
+  background-color: #e39ff5;
+  padding: 15px;
+  border-radius: 15px;
+}
+.title {
+  color: black;
+  padding: 10px;
+}
+.name_input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding-left: 21px;
+  box-shadow: 0px 0px 2px 0px black;
+}
+.btn {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: teal;
+  border: 0;
+  padding: 12px 50px;
+  color: #ffffff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  border-radius: 10px;
+}
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"]:checked + label span {
+  transform: scale(1.25);
+}
+input[type="radio"]:checked + label .red {
+  border: 2px solid #711313;
+}
+input[type="radio"]:checked + label .orange {
+  border: 2px solid #873a08;
+}
+input[type="radio"]:checked + label .yellow {
+  border: 2px solid #816102;
+}
+input[type="radio"]:checked + label .olive {
+  border: 2px solid #505a0b;
+}
+input[type="radio"]:checked + label .green {
+  border: 2px solid #0e4e1d;
+}
+input[type="radio"]:checked + label .teal {
+  border: 2px solid #003633;
+}
+input[type="radio"]:checked + label .blue {
+  border: 2px solid #103f62;
+}
+input[type="radio"]:checked + label .violet {
+  border: 2px solid #321a64;
+}
+input[type="radio"]:checked + label .purple {
+  border: 2px solid #501962;
+}
+input[type="radio"]:checked + label .pink {
+  border: 2px solid #851554;
+}
+label {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+label:hover span {
+  transform: scale(1.25);
+}
+label span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+label span.red {
+  background: #db2828;
+}
+label span.orange {
+  background: #f2711c;
+}
+label span.yellow {
+  background: #fbbd08;
+}
+label span.olive {
+  background: #b5cc18;
+}
+label span.green {
+  background: #21ba45;
+}
+label span.teal {
+  background: #00b5ad;
+}
+label span.blue {
+  background: #2185d0;
+}
+label span.violet {
+  background: #6435c9;
+}
+label span.purple {
+  background: #a333c8;
+}
+label span.pink {
+  background: #e03997;
+}
